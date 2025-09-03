@@ -1,19 +1,19 @@
-import React from 'react'
-import Hero from '../assets/components/Hero'
-import CardList from '../assets/components/CardList'
-import Footer from '../assets/components/Footer'
+import React from "react";
+import Hero from "../assets/components/Hero";
+import CardList from "../assets/components/CardList";
+import Footer from "../assets/components/Footer";
 
 const Homepage = () => {
   return (
-    <div className='p-5'>
-        <Hero />
-        <CardList title="Now Playing" category={"now_playing"} />
-        <CardList title="Top Rated" category={"top_rated"} />
-        <CardList title="Popular" category={"popular"} />
-        <CardList title="Upcoming" category={"upcoming"} />
-        <Footer />
-    </div>
-  )
-}
+    <div className="p-5">
+      <Hero type="season" />        {/* Now Airing Hero */}
+      <CardList title="Now Airing" type="season" />
+      <CardList title="Top Rated" type="top" />
+      {/* Removed Most Popular & Upcoming to reduce 429 errors */}
+      <Footer />
 
-export default Homepage
+    </div>
+  );
+};
+
+export default Homepage;

@@ -1,5 +1,5 @@
 import React from "react";
-import Reel from "../assets/Reel_logo.svg";
+import Reel from "../assets/zen_logo.svg";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 
@@ -8,7 +8,7 @@ const SignIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  console.log("Usernam: ", username, "\nPassword: ", password);
+  console.log("Username: ", username, "\nPassword: ", password);
 
   return (
     <div
@@ -40,7 +40,7 @@ const SignIn = () => {
 
           <button
             type="submit"
-            className="w-full bg-[#8854ff] text-white py-2 rounded text-base 
+            className="w-full bg-[#00e5ff] text-black py-2 rounded text-base 
              transform transition-all duration-300 ease-in-out
              hover:scale-105 hover:shadow-[0_0_6px_white] cursor-pointer"
           >
@@ -50,7 +50,7 @@ const SignIn = () => {
 
         <div className="mt-10 text-[#9a9a9a] text-sm">
           <p>
-            Wanna <span className="font-semibold text-[#8854ff]">Reel-lax</span> with us?{" "}
+            Wanna get your <span className="font-semibold text-[#00e5ff]">Zenime</span> on?{" "}
             <span
               onClick={() => navigate("/signup")}
               className="text-white font-medium cursor-pointer ml-2 hover:underline"

@@ -1,9 +1,9 @@
 {
-  "name": "reel-lax",
+  "name": "zenime",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://jeanrichardson610.github.io/Reel-lax",
+  "homepage": "https://jeanrichardson610.github.io/Zenime/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

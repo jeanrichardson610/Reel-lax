@@ -4,41 +4,53 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
-import Placeholder from "../No_Image_Placeholder.png";
-import { Link } from 'react-router';
+import Placeholder from "../../assets/No_Image_Placeholder.png";
+import { Link } from "react-router";
+import { fetchWithCache } from "../../utils/cache";
 
-const CardList = ({ title, category }) => {
+const CardList = ({ title, type = "top", filter = "", shuffle = false }) => {
   const [data, setData] = useState([]);
-  const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-
-const options = {
-  method: "GET",
-  headers: {
-    accept: "application/json",
-    Authorization: `Bearer ${API_KEY}`,
-  },
-};
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/${category}?language=en-US&page=1`, options)
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.results) {
-          let movies = res.results;
-
-          // Shuffle only for "popular"
-          if (category === "popular") {
-            for (let i = movies.length - 1; i > 0; i--) {
-              const j = Math.floor(Math.random() * (i + 1));
-              [movies[i], movies[j]] = [movies[j], movies[i]];
-            }
-          }
-
-          setData(movies);
+    const timer = setTimeout(async () => {
+      setLoading(true);
+      try {
+        let url;
+        switch (type) {
+          case "season": url = "https://api.jikan.moe/v4/seasons/now"; break;
+          case "upcoming": url = "https://api.jikan.moe/v4/seasons/upcoming"; break;
+          case "top": url = `https://api.jikan.moe/v4/top/anime${filter ? "?filter=" + filter : ""}`; break;
+          default: url = "https://api.jikan.moe/v4/top/anime"; break;
         }
-      })
-      .catch((err) => console.error(err));
-  }, [category]);
+
+        const result = await fetchWithCache(url);
+        if (!result.data) throw new Error("Failed to fetch anime list.");
+
+        let animeList = [...result.data];
+        if (shuffle) {
+          for (let i = animeList.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [animeList[i], animeList[j]] = [animeList[j], animeList[i]];
+          }
+        }
+
+        setData(animeList);
+        setError(null);
+      } catch (err) {
+        console.error(err);
+        setError("Could not load anime list. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    }, 300); // stagger fetch
+
+    return () => clearTimeout(timer);
+  }, [type, filter, shuffle]);
+
+  if (loading) return <p className="text-white p-4">Loading {title}...</p>;
+  if (error) return <p className="text-red-500 p-4">{error}</p>;
 
   return (
     <div className="text-white md:px-4">
@@ -53,25 +65,21 @@ const options = {
           1024: { slidesPerView: 4, slidesPerGroup: 4 },
         }}
         pagination={{ type: "progressbar" }}
-        navigation={true}
+        navigation
         modules={[Pagination, Navigation]}
         className="mySwiper"
       >
-        {data.map((item) => (
-          <SwiperSlide key={item.id}>
-            <Link to={`/movie/${item.id}`}>
-            <div className="flex flex-col items-center gap-y-2 h-full">
-              <img
-                src={
-                  item.backdrop_path
-                    ? `https://image.tmdb.org/t/p/w500/${item.backdrop_path}`
-                    : Placeholder
-                }
-                alt={item.title || "Movie poster"}
-                className="h-60 w-full object-center object-cover mt-10 rounded-xl"
-              />
-              <p className="text-center pt-2">{item.original_title}</p>
-            </div>
+        {data.map((anime) => (
+          <SwiperSlide key={anime.mal_id}>
+            <Link to={`/anime/${anime.mal_id}`}>
+              <div className="flex flex-col items-center gap-y-2 h-full">
+                <img
+                  src={anime.images?.jpg?.image_url || Placeholder}
+                  alt={anime.title}
+                  className="h-60 w-full object-cover mt-10 rounded-xl"
+                />
+                <p className="text-center pt-2">{anime.title}</p>
+              </div>
             </Link>
           </SwiperSlide>
         ))}
@@ -102,14 +110,14 @@ const options = {
           transform: scale(1.15);
           border: none;
           background: white;
-          color: #8854ff;
+          color: #00e5ff;
           box-shadow: 0 4px 12px rgba(255,255,255,0.8);
         }
         .mySwiper .swiper-button-next:hover::after,
         .mySwiper .swiper-button-prev:hover::after {
           font-size: 24px;
           font-weight: 900;
-          text-shadow: 0 0 2px #8854ff, 0 0 6px #8854ff;
+          text-shadow: 0 0 2px #00e5ff, 0 0 6px #00e5ff;
         }
       `}</style>
     </div>

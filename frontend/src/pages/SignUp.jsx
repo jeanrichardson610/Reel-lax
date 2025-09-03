@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
-import Reel from "../assets/Reel_logo.svg";
+import Reel from "../assets/zen_logo.svg";
 
 const SignUp = () => {
   const navigate = useNavigate()
@@ -25,13 +25,13 @@ const SignUp = () => {
             <input type="email" value={email}  onChange={(e) => setEmail(e.target.value)}  placeholder="Enter your email" className="w-full h-[50px] bg-[#333] text-white rounded px-5 text-base" /> 
             <input type="password" value={password}  onChange={(e) => setPassword(e.target.value)}  placeholder="Enter your password" className="w-full h-[50px] bg-[#333] text-white rounded px-5 text-base" /> 
 
-            <button type="submit" className="w-full bg-[#8854ff] text-white py-2 rounded text-base hover:opacity-70 cursor-pointer">
+            <button type="submit" className="w-full bg-[#00e5ff] text-black py-2 rounded text-base hover:opacity-100 hover:shadow-[0_0_6px_white] hover:scale-105 cursor-pointer transition-all">
                 Sign Up
             </button>
         </form>
 
         <div className="mt-10 text-[#9a9a9a] text-sm">
-            <p>Already <span className="font-semibold text-[#8854ff]">Reel-laxing</span> with us? <span onClick={() => navigate("/signin")} className="text-white font-medium cursor-pointer ml-2 hover:underline">Sign In Here</span></p>
+            <p>Already a <span className="font-semibold text-[#00e5ff]">Zenime</span> member? <span onClick={() => navigate("/signin")} className="text-white font-medium cursor-pointer ml-2 hover:underline">Sign In Here</span></p>
         </div>
       </div>
     </div>

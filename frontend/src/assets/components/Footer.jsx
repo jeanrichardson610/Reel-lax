@@ -2,13 +2,13 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="text-[#8854ff] md:px-10">
+    <div className="text-[#00e5ff] md:px-10">
       {/* Center container, keep text left */}
       <div className="max-w-7xl mx-auto">
         <div className="py-20">
           <p>Developed by Jean Richardson</p>
           <p>
-            Long day? Stressful evening? Kick back, grab some snacks and Reel-lax
+            Long day? Stressful evening? Kick back, grab some snacks and achieve zen with Zenime
           </p>
           <p className="pb-5">Questions? Contact us.</p>
         </div>
