@@ -91,20 +91,21 @@ const Hero = ({ type = "season" }) => {
               : "No synopsis available."}
           </p>
 
-          <div className="flex space-x-2 md:space-x-6 font-medium max-[400px]:flex-col max-[400px]:space-x-0 max-[400px]:space-y-2">
-            <button className="flex justify-center items-center text-[#00e5ff] bg-black border-[#00e5ff] border-2 hover:bg-[#00e5ff] hover:text-black  py-3 px-6 rounded-full text-sm w-auto">
+          <div className="flex space-x-2 md:space-x-6 font-medium max-[400px]:flex-col max-[400px]:items-start max-[400px]:space-x-0 max-[400px]:space-y-2">
+            <button className="flex justify-center items-center text-[#00e5ff] bg-black border-[#00e5ff] border-2 hover:bg-[#00e5ff] hover:text-black py-3 px-6 rounded-full text-sm w-auto max-w-fit">
               <FontAwesomeIcon
                 icon={faBookmark}
                 className="mr-2 w-4 h-5 md:w-5 md:h-5"
-              />{" "}
+              />
               Save for later
             </button>
+
             <Link to={`/anime/${anime.mal_id}`}>
-              <button className="flex justify-center items-center text-black bg-[#00e5ff] hover:bg-black hover:text-[#00e5ff] border-2 border-transparent hover:border-[#00e5ff] hover:border-2 py-3 px-6 rounded-full text-sm w-auto">
+              <button className="flex justify-center items-center text-black bg-[#00e5ff] hover:bg-black hover:text-[#00e5ff] border-2 border-transparent hover:border-[#00e5ff] py-3 px-6 rounded-full text-sm w-auto max-w-fit">
                 <FontAwesomeIcon
                   icon={faPlay}
                   className="mr-2 w-4 h-5 md:w-5 md:h-5"
-                />{" "}
+                />
                 Watch Now
               </button>
             </Link>

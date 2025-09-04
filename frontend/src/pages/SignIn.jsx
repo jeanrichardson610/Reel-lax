@@ -13,7 +13,7 @@ const SignIn = () => {
   return (
     <div
       className="min-h-screen bg-black/50 bg-blend-overlay bg-cover bg-center px-4 md:px-8 py-5"
-      style={{ backgroundImage: "url('/Signin_Image.jpg')" }}
+      style={{ backgroundImage: "url('/Zenime/Signin_Image.jpg')" }}
     >
       {/* Optional content goes here */}
       <div className="max-w-[450px] w-full bg-black bg-opacity-75 rounded-2xl px-8 py-10 mx-auto mt-8">
