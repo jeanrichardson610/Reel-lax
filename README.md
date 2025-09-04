@@ -1,6 +1,6 @@
 Reel-lax
 
-Reel-lax is a sleek, user-friendly movie and TV show web application built with React, Vite, and Tailwind CSS. The platform offers an engaging experience for exploring content across categories like “Now Playing,” “Top Rated,” “Popular,” and “Upcoming.” The design prioritizes usability, responsiveness, and modern visual aesthetics.
+Reel-lax is a user-friendly movie and TV show web application built with React, Vite, and Tailwind CSS. The platform offers an engaging experience for exploring content across categories like “Now Playing,” “Top Rated,” “Popular,” and “Upcoming.” The design prioritizes usability, responsiveness, and modern visual aesthetics.
 
 Features
 
