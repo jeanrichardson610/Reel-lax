@@ -13,7 +13,7 @@ Reel-Lax is a user-friendly movie and TV show web application built with **React
 ## 🎥 Demo
 
 <p align="center">
-  <img src="./frontend/src/assets/reel-lax-demo.gif" width="900"/>
+  <img src="./frontend/src/assets/demo.gif" width="900"/>
 </p>
 
 ---
