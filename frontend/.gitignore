@@ -26,3 +26,4 @@ Thumbs.db
 
 # Optional cache
 .cache/
+.DS_Store
