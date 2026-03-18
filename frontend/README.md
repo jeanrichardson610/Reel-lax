@@ -1,7 +1,7 @@
 # 🎬 Reel-Lax | Movie & TV Show Explorer
 
 <p align="center">
-  <img src="./frontend/src/assets/Reel-lax.png" width="900"/>
+  <img src="../assets/Reel-lax.png" width="900"/>
 </p>
 
 <h3 align="center">Reel-Lax | Movie & TV Show Explorer</h3>
@@ -13,7 +13,7 @@ Reel-Lax is a user-friendly movie and TV show web application built with **React
 ## 🎥 Demo
 
 <p align="center">
-  <img src="./frontend/src/assets/demo.gif" width="900"/>
+  <img src="../assets/demo.gif" width="900"/>
 </p>
 
 ---
