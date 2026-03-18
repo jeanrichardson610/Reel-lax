@@ -76,4 +76,4 @@ Reel-Lax provides:
 
 ## 🚀 Live Demo
 
-View Reel-Lax live: [https://reel-lax.onrender.com](https://reel-lax.onrender.com)
+View Reel-Lax live: [Reel-lax](https://reel-lax.vercel.app/)
