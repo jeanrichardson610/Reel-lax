@@ -42,7 +42,7 @@ const Navbar = () => {
             className="absolute top-2 right-4 text-xl text-[#8854ff]"
           />
         </div>
-        <button className="bg-[#8854ff] px-5 py-2 text-white cursor-pointer rounded-full hover:bg-[#3075ff] transition-colors duration-500 ease-in-out">
+        <button className="bg-[#8854ff] px-5 py-2 text-white cursor-pointer rounded-full hover:bg-[#3075ff] transition-colors duration-500 ease-in-out hidden md:inline-flex">
           AI Movie Picks
         </button>
         <Link to={"/signin"}>

@@ -45,7 +45,7 @@ const options = {
       <h2 className="pt-10 pb-5 text-lg font-medium">{title}</h2>
       <Swiper
         slidesPerView={1}
-        slidesPerGroup={4}
+        slidesPerGroup={1}
         spaceBetween={20}
         breakpoints={{
           640: { slidesPerView: 2, slidesPerGroup: 2 },
